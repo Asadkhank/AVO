@@ -19,7 +19,7 @@ const Portfolio = () => {
       </svg>
 
       <div className="mx-auto py-16 px-4 md:px-32">
-        <h1 className="lg:text-7xl font-bold pb-5 text-5xl   text-center">Our Works</h1>
+        <h1 className="lg:text-6xl md:text-5xl text-4xl font-bold pb-5 text-center">Our Works</h1>
 
         {/* Section Loop for DRY Principle */}
         {[1, 2, 3, 4, 5, 6].map((item, index) => (
@@ -34,14 +34,14 @@ const Portfolio = () => {
             </div>
 
             {/* Text Section */}
-            <div className={`w-full md:w-1/2 flex flex-col mt-7  justify-center ${index % 2 === 0 ? 'md:items-start' : 'md:items-end'} md:ml-14`}>
-              <h2 className="text-lg text-start tracking-widest font-semibold">
+            <div className={`w-full md:w-1/2 flex flex-col mt-7 justify-center ${index % 2 === 0 ? 'md:items-start' : 'md:items-end'} md:ml-14`}>
+              <h2 className="text-lg md:text-xl tracking-widest font-semibold">
                 {index % 2 === 0 ? 'Web Design' : 'Web Development'}
               </h2>
-              <h1 className="text-3xl tracking-widest mt-2">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl tracking-widest mt-2">
                 {index % 2 === 0 ? 'Cassette tape' : 'Hand Writing'}
               </h1>
-              <p className="text-lg mt-2">
+              <p className="text-base md:text-lg lg:text-xl mt-2">
                 Far far away, behind the word mountains, far from the countries
                 <br />
                 Vokalia and Consonantia, there live the blind texts.
@@ -55,8 +55,8 @@ const Portfolio = () => {
                   />
                 </div>
                 <div>
-                  <h2 className="text-lg font-semibold">Jamie Jonson</h2>
-                  <p className="text-gray-500 tracking-widest">avo.com</p>
+                  <h2 className="text-lg md:text-xl lg:text-2xl font-semibold">Jamie Jonson</h2>
+                  <p className="text-gray-500 tracking-widest text-sm md:text-base lg:text-lg">avo.com</p>
                 </div>
               </div>
 
@@ -73,18 +73,18 @@ const Portfolio = () => {
           </div>
         ))}
       </div>
-      
-        {/* Waveform at the bottom */}
-        <svg
-          className="absolute bottom-0 left-0 w-full"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-        >
-          <path
-            fill="#ffffff"
-            d="M0,200 L360,250 L1080,340 L720,360 L1440,200 L1440,320 L0,320 Z"
-          />
-        </svg>
+
+      {/* Waveform at the bottom */}
+      <svg
+        className="absolute bottom-0 left-0 w-full"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+      >
+        <path
+          fill="#ffffff"
+          d="M0,200 L360,250 L1080,340 L720,360 L1440,200 L1440,320 L0,320 Z"
+        />
+      </svg>
     </section>
   );
 };

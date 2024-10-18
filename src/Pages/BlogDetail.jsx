@@ -20,58 +20,55 @@ function BlogDetail() {
 
   return (
     <>
-      <div
-        className="h-screen flex items-center justify-center text-start bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${BlogBG})`,
-        }}
-      >
-        {/* Main Container for Content */}
-        <div className="flex flex-col items-center justify-start w-full max-w-screen-lg p-4">
-          {/* Transparent Buttons to Navigate */}
-          <div className="flex space-x-4">
-            <Link
-              to="/"
-              className="bg-transparent text-white px-4 py-2 rounded hover:text-red-500 transition duration-300"
-            >
-              Home <span className="text-red-500">&gt;</span>
-            </Link>
-            <Link
-              to="/Blog"
-              className="bg-transparent text-white px-4 py-2 rounded hover:text-red-500 transition duration-300"
-            >
-              Blog <span className="text-red-500">&gt;</span>
-            </Link>
-            <h1 className="bg-transparent text-white px-4 py-2 rounded hover:text-red-500 transition duration-300">
-              Single Blog &gt;
-            </h1>
-          </div>
-
-          {/* Main Title */}
-          <h1 className="text-6xl font-bold mt-8 text-white whitespace-nowrap md:ml-32">
-            Single Blog
-          </h1>
-
-          {/* Breadcrumbs */}
-          <p className="mt-4 text-white text-center">
-            Work <span className="text-red-500">&gt;</span>
-          </p>
-
-          {/* SVG at the Bottom for Styling the Four Edges */}
-          <div className="absolute bottom-0 left-0 right-0">
-            <svg
-              className="w-full"
-              viewBox="0 0 1440 320" // Ensure the correct viewBox size for the SVG
-              preserveAspectRatio="none"
-            >
-              <path
-                fill="white" // Change this color if needed
-                d="M0,200 L360,250 L1080,340 L720,360 L1440,200 L1440,320 L0,320 Z" // Four Edges Path
-              />
-            </svg>
-          </div>
-        </div>
+   <div
+  className="relative h-screen flex items-center lg:items-center lg:justify-start text-start bg-cover bg-center overflow-hidden" // Ensure relative positioning and overflow hidden
+  style={{ backgroundImage: `url(${BlogBG})` }}
+>
+  <div className="text-white lg:ml-32 flex-col ml-7">
+    <div className="flex items-center">
+      {/* Home Link Positioning */}
+      <div>
+        <Link
+          to="/"
+          className="relative text-sm md:text-base lg:text-lg bg-transparent text-white pr-3 md:px-4 md:py-2 rounded hover:text-[red] transition duration-300"
+        >
+          HOME <span className="text-red-500">&gt;</span>
+        </Link>
       </div>
+      <div>
+        <Link
+          to="/blog" // Ensure this matches the route defined in your App.js
+          className="relative text-sm md:text-base lg:text-lg bg-transparent text-white pr-3 md:px-4 md:py-2 rounded hover:text-[red] transition duration-300"
+        >
+          BLOG <span className="text-red-500">&gt;</span>
+        </Link>
+      </div>
+      <div>
+        <p className="text-sm md:text-base lg:text-lg text-white">
+          BLOG SINGLE <span className="text-red-500">&gt;</span>
+        </p>
+      </div>
+    </div>
+
+    {/* Adding margin-top to prevent overlap */}
+    <div className="mt-8 lg:mt-10">
+      <h1 className="text-white lg:text-5xl md:text-4xl font-bold text-3xl">
+        BLOG SINGLE
+      </h1>
+    </div>
+  </div>
+
+  {/* SVG at the Bottom for Styling the Four Edges */}
+  <div className="absolute bottom-0 left-0 right-0 z-20 h-1/4"> {/* Higher z-index and set height */}
+    <svg className="w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path
+        fill="white"
+        d="M0,200 L360,250 L1080,340 L720,360 L1440,200 L1440,320 L0,320 Z"
+      />
+    </svg>
+  </div>
+</div>
+
 
       {/* page content */}
       <section className="lg:mx-32 mb-28 mt-28">
@@ -86,11 +83,11 @@ function BlogDetail() {
               />
             </div>
 
-            <div className="text-justify mt-6">
+            <div className="lg:text-justify sm:text-left mt-6">
               <h3 className="text-4xl">
                 It is a long established fact a reader be distracted
               </h3>
-              <p className="pt-4 leading-7">
+              <p className="pt-4  leading-7">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Reiciendis, eius mollitia suscipit, quisquam doloremque
                 distinctio perferendis et doloribus unde architecto optio
@@ -101,7 +98,7 @@ function BlogDetail() {
               </p>
             </div>
 
-            <div className="text-justify mt-6">
+            <div className="lg:text-justify mt-6">
               <h3 className="text-4xl">#2. Creative WordPress Themes</h3>
 
               <p className="pt-4 leading-7">
@@ -295,7 +292,7 @@ function BlogDetail() {
               <h3 className="text-4xl w-2/3 text-center py-5">
                 Leave a comment
               </h3>
-              <div className="bg-gray-100 p-10 shadow-md rounded-lg max-w-3xl mx-auto">
+              <div className="bg-gray-100 p-4 shadow-md rounded-lg max-w-3xl mx-auto">
                 <input
                   type="text"
                   placeholder="Name"
@@ -412,7 +409,7 @@ function BlogDetail() {
     </div>
 
     {/* Paragraph Section */}
-    <div className="mt-5 w-full mx-auto p-4">
+    <div className="mt-5 lg:w-full sm:w-[342px] mx-auto ">
       <h3 className="text-2xl sm:text-xl py-2 sm:py-1">Paragraph</h3>
       <p className="w-full sm:w-[448px] text-justify text-sm sm:text-base">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam vel modi odit accusantium, at tempora. Adipisci, labore autem veniam obcaecati libero accusamus eius laboriosam inventore a doloribus beatae similique rerum.

@@ -12,7 +12,7 @@ const testimonials = [
     name: 'John Doe',
     role: 'Product Manager',
     image: imgmen,
-    quote:'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.',
+    quote: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.',
   },
   {
     name: 'Jane Doe',
@@ -36,7 +36,7 @@ const testimonials = [
     name: 'Eve Walker',
     role: 'Designer',
     image: imgmen,
-    quote:'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.',
+    quote: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.',
   },
 ];
 
@@ -46,7 +46,7 @@ const Testimonial = () => {
 
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
-  const containerRef = useRef(null); // Reference to the container for disabling selection
+  const containerRef = useRef(null);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % Math.ceil(testimonials.length / testimonialsPerSlide));
@@ -60,49 +60,45 @@ const Testimonial = () => {
     setCurrentSlide(index);
   };
 
-  // Handle touch start
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
   };
 
-  // Handle touch end
   const handleTouchEnd = (e) => {
     touchEndX.current = e.changedTouches[0].clientX;
     handleGesture();
   };
 
-  // Handle the swipe gesture
   const handleGesture = () => {
     if (touchStartX.current - touchEndX.current > 50) {
-      nextSlide(); // Swipe left -> next slide
+      nextSlide();
     }
     if (touchStartX.current - touchEndX.current < -50) {
-      prevSlide(); // Swipe right -> previous slide
+      prevSlide();
     }
   };
 
-  // Handle mouse drag events for desktop
   const handleMouseDown = (e) => {
     touchStartX.current = e.clientX;
-    containerRef.current.classList.add('select-none'); // Disable text selection during dragging
+    containerRef.current.classList.add('select-none');
   };
 
   const handleMouseUp = (e) => {
     touchEndX.current = e.clientX;
     handleGesture();
-    containerRef.current.classList.remove('select-none'); // Enable text selection again
+    containerRef.current.classList.remove('select-none');
   };
 
   return (
     <div className="max-w-4xl mx-auto text-center mt-28 mb-32 py-10">
-      <h2 className="text-5xl font-bold mb-14">CLIENTS SAY ABOUT US?</h2>
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-14">CLIENTS SAY ABOUT US?</h2>
       <div
-        className="relative cursor-grab " // Cursor for dragging
+        className="relative cursor-grab"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
-        ref={containerRef} // Ref to the container for text selection control
+        ref={containerRef}
       >
         {/* Slider content */}
         <div className="flex flex-col md:flex-row justify-center space-x-0 md:space-x-4">
@@ -114,18 +110,18 @@ const Testimonial = () => {
                 className="p-6 w-full md:max-w-xs bg-gray-100 rounded-md shadow-lg transition-transform duration-500 ease-in-out mb-4 md:mb-0"
               >
                 <div className="text-left">
-                  <span className="text-6xl text-red-500 mb-4">&ldquo;</span>
-                  <p className="text-gray-600 mb-6">{testimonial.quote}</p>
+                  <span className="text-4xl md:text-5xl lg:text-6xl text-red-500 mb-4">&ldquo;</span>
+                  <p className="text-base md:text-lg lg:text-xl text-gray-600 mb-6">{testimonial.quote}</p>
                 </div>
                 <div className="flex items-center mt-4">
                   <img
-                    className="w-20 h-20 rounded-full mr-4"
+                    className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full mr-4"
                     src={testimonial.image}
                     alt={testimonial.name}
                   />
                   <div className="text-left">
-                    <h3 className="text-xl tracking-widest font-semibold">{testimonial.name}</h3>
-                    <p className="text-gray-500">{testimonial.role}</p>
+                    <h3 className="text-lg md:text-xl lg:text-2xl tracking-widest font-semibold">{testimonial.name}</h3>
+                    <p className="text-sm md:text-base lg:text-lg text-gray-500">{testimonial.role}</p>
                   </div>
                 </div>
               </div>
